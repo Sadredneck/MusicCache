@@ -27,13 +27,6 @@ public class MusicPiracy {
         }
     }
 
-    public static void doAudioPiracy(File resDir) {
-
-    }
-
-
-    public static void doNothing(){}
-
     public static Path getCachePath() {
         return cachePath;
     }
