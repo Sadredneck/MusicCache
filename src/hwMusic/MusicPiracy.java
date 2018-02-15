@@ -18,4 +18,5 @@ public class MusicPiracy {
                 break;
         }
     }
+    public static void doNothing(){}
 }
