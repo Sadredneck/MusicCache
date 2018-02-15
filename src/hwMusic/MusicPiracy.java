@@ -18,5 +18,10 @@ public class MusicPiracy {
                 break;
         }
     }
+
     public static void doNothing(){}
+
+    public static Path getCachePath() {
+        return cachePath;
+    }
 }

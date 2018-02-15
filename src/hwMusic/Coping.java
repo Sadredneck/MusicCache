@@ -8,45 +8,29 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class Coping {
-    //private ArrayList<Path> paths;
-    private Path destination;
-    private Path fromCache;
 
-    public void createFolder(String folder) {
+    public static Path createFolder(String folder) {
         try {
             Files.createDirectories(Paths.get(folder));
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            setDestination(Paths.get(folder));
+            return Paths.get(folder);
         }
     }
 
-    public void setDestination(Path destination) {
-        this.destination = destination;
-    }
-
-    public void setFromCache(Path fromCache) {
-        this.fromCache = fromCache;
-    }
-
-    public void iterateFiles(File folder) {
+    public static void iterateFiles(File folder) {
+        if (folder.listFiles().length==0) {
+            System.out.println("No Cache");
+            return;
+        }
         for (File file : folder.listFiles()) {
             Path pathFrom = file.toPath();
-
+            copyAndRename(pathFrom);
         }
     }
 
-    public Coping(Path destination, Path fromCache) {
-        this.destination = destination;
-        this.fromCache = fromCache;
-    }
+    public static void copyAndRename(Path path) {
 
-    public boolean checkExist(Path path){
-        return false;
-    }
-
-    public void copyAndRename(Path path) {
-        
     }
 }
