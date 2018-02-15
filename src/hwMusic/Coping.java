@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 
 public class Coping {
 
@@ -19,18 +18,18 @@ public class Coping {
         }
     }
 
-    public static void iterateFiles(File folder) {
-        if (folder.listFiles().length==0) {
+    public static void iterateFiles(Path folder, Path dest) {
+        if (folder.toFile().listFiles().length==0) {
             System.out.println("No Cache");
             return;
         }
-        for (File file : folder.listFiles()) {
+        for (File file : folder.toFile().listFiles()) {
             Path pathFrom = file.toPath();
-            copyAndRename(pathFrom);
+            copyAndRename(pathFrom, dest);
         }
     }
 
-    public static void copyAndRename(Path path) {
+    public static void copyAndRename(Path path, Path dest) {
 
     }
 }
