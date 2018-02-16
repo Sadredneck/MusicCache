@@ -33,6 +33,7 @@ public class Coping {
         }
         for (File file : cacheFiles) {
             Path pathFrom = file.toPath();
+            System.out.println(file);
             copyAndRename(pathFrom, dest);
         }
     }

@@ -12,14 +12,14 @@ public class MusicPiracy {
         switch (System.getProperty("os.name")) {
             case "Mac OS X":
                 cachePath = Paths.get(System.getProperty("user.home"), "Library", "Caches", "Google", "Chrome", "Default", "Media Cache");
-                System.out.println("maca");
+                System.out.println("System - Mac OS X");
                 break;
             case "Windows 10":
             case "Windows 8":
             case "Windows 7":
                 default:
                 cachePath = Paths.get(System.getProperty("user.home"), "AppData", "local", "Google", "Chrome", "User Data", "Default", "Media Cache");
-                System.out.println("wiwda");
+                System.out.println("System - Windows");
                 break;
         }
     }
