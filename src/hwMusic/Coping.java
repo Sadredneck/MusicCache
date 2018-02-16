@@ -22,8 +22,7 @@ public class Coping {
     public static void iterateFiles(Path from, Path dest) {
         File destFile = from.toFile();
         File[] cacheFiles = destFile.listFiles();
-        if (cacheFiles == null)
-        {
+        if (cacheFiles == null) {
             System.out.println("AAAAA");
             return;
         }
@@ -38,6 +37,11 @@ public class Coping {
         }
     }
 
-    public static void copyAndRename(Path path, Path dest) {
+    public static void copyAndRename(Path from, Path to) {
+        try {
+            Files.copy(from, Paths.get(to.toString() + from.getFileName() + ".mp3"));
+        } catch (IOException e) {
+        }
     }
+
 }
