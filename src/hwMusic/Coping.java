@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 public class Coping {
 
@@ -23,7 +24,7 @@ public class Coping {
         File destFile = from.toFile();
         File[] cacheFiles = destFile.listFiles();
         if (cacheFiles == null) {
-            System.out.println("AAAAA");
+            System.out.println("No Cache Folder");
             return;
         }
         if (cacheFiles.length == 0) {
@@ -32,14 +33,17 @@ public class Coping {
         }
         for (File file : cacheFiles) {
             Path pathFrom = file.toPath();
+            //System.out.println(file);
             copyAndRename(pathFrom, dest);
         }
     }
 
     public static void copyAndRename(Path from, Path to) {
         try {
-            Files.copy(from, Paths.get(to.toString(), from.getFileName() + ".mp3"));
+            Files.copy(from, Paths.get(to.toString(), from.getFileName() + ".mp3"),
+                    StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
         }
     }
+
 }
