@@ -12,8 +12,7 @@ public class Main {
         System.out.println("Enter the destination folder: ");
         String dest = reader.readLine();
         MusicPiracy.doPiracy(Coping.createFolder(dest));
-        Coping.iterateFiles(MusicPiracy.getCachePath(), Coping.createFolder(dest));
-
+        System.out.println("Copying has been made");
 
     }
 }
