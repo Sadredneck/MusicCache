@@ -38,9 +38,8 @@ public class Coping {
 
     public static void copyAndRename(Path from, Path to) {
         try {
-            Files.copy(from, Paths.get(to.toString() + from.getFileName() + ".mp3"));
+            Files.copy(from, Paths.get(to.toString(), from.getFileName() + ".mp3"));
         } catch (IOException e) {
         }
     }
-
 }
