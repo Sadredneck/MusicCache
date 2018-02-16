@@ -21,8 +21,7 @@ public class Coping {
     }
 
     public static void iterateFiles(Path from, Path dest) {
-        File destFile = from.toFile();
-        File[] cacheFiles = destFile.listFiles();
+        File[] cacheFiles = from.toFile().listFiles();
         if (cacheFiles == null) {
             System.out.println("No Cache Folder");
             return;
@@ -33,8 +32,8 @@ public class Coping {
         }
         for (File file : cacheFiles) {
             Path pathFrom = file.toPath();
-            //System.out.println(file);
-            copyAndRename(pathFrom, dest);
+            if (file.length() == 1048576)
+                copyAndRename(pathFrom, dest);
         }
     }
 
