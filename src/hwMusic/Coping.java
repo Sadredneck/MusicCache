@@ -10,26 +10,33 @@ public class Coping {
 
     public static Path createFolder(String folder) {
         try {
-            Files.createDirectories(Paths.get(folder));
-        } catch (IOException e) {
+            File directory = new File(folder);
+            directory.mkdir();
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             return Paths.get(folder);
         }
     }
 
-    public static void iterateFiles(Path folder, Path dest) {
-        if (folder.toFile().listFiles().length==0) {
+    public static void iterateFiles(Path from, Path dest) {
+        File destFile = from.toFile();
+        File[] cacheFiles = destFile.listFiles();
+        if (cacheFiles == null)
+        {
+            System.out.println("AAAAA");
+            return;
+        }
+        if (cacheFiles.length == 0) {
             System.out.println("No Cache");
             return;
         }
-        for (File file : folder.toFile().listFiles()) {
+        for (File file : cacheFiles) {
             Path pathFrom = file.toPath();
             copyAndRename(pathFrom, dest);
         }
     }
 
     public static void copyAndRename(Path path, Path dest) {
-
     }
 }

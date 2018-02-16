@@ -11,7 +11,8 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter the destination folder: ");
         String dest = reader.readLine();
-        Coping.iterateFiles(MusicPiracy.getCachePath(), Coping.createFolder(dest));
+        MusicPiracy.doPiracy(Coping.createFolder(dest));
+        //Coping.iterateFiles(MusicPiracy.getCachePath(), Coping.createFolder(dest));
 
 
     }

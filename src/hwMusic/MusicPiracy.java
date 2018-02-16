@@ -10,21 +10,22 @@ public class MusicPiracy {
 
     static {
         switch (System.getProperty("os.name")) {
+            case "Mac OS X":
+                cachePath = Paths.get(System.getProperty("user.home"), "Library", "Caches", "Google", "Chrome", "Default", "Media Cache");
+                System.out.println("maca");
+                break;
             case "Windows 10":
             case "Windows 8":
             case "Windows 7":
-                cachePath = Paths.get(System.getProperty("user.home"), "AppData", "Google", "Chrome", "User Data", "Default", "Media Cache");
-                System.out.println("wiwda");
-                break;
-            case "Mac OS X":
-                cachePath = Paths.get(System.getProperty("user.home"), "Caches", "Google", "Chrome", "Default", "Media Cache");
-                System.out.println("maca");
-                break;
-            default:
-                cachePath = Paths.get(System.getProperty("user.home"), "AppData", "Google", "Chrome", "User Data", "Default", "Media Cache");
+                default:
+                cachePath = Paths.get(System.getProperty("user.home"), "AppData", "local", "Google", "Chrome", "User Data", "Default", "Media Cache");
                 System.out.println("wiwda");
                 break;
         }
+    }
+
+    public static void doPiracy(Path destination) {
+        Coping.iterateFiles(cachePath, destination);
     }
 
     public static Path getCachePath() {
